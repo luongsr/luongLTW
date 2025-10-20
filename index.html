@@ -3,149 +3,179 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>💗 HÁP BY NÊU DIA 💗</title>
+    <title>💗 Chúc mừng ngày 20/10 💗</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
       body {
         margin: 0;
         height: 100vh;
-        background: radial-gradient(
-          circle at top left,
-          #ffb6c1,
-          #ff69b4,
-          #ff1493
-        );
+        background: url("https://i.imgur.com/mjS1zI2.jpg") no-repeat
+          center/cover;
         display: flex;
-        flex-direction: column;
-        align-items: center;
         justify-content: center;
-        overflow: hidden;
+        align-items: center;
+        flex-direction: column;
         font-family: "Poppins", sans-serif;
+        overflow: hidden;
       }
 
+      /* Lớp phủ làm mềm nền */
+      .overlay {
+        .footer {
+          position: absolute;
+          bottom: 20px;
+          text-align: center;
+          width: 100%;
+          font-size: 22px;
+          color: white;
+          font-weight: bold;
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .footer .highlight {
+          color: #ffd700; /* vàng kim */
+          text-shadow: 0 0 15px rgba(255, 215, 0, 0.8),
+            0 0 30px rgba(255, 215, 0, 0.6);
+          animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+          from {
+            text-shadow: 0 0 10px #ffd700, 0 0 20px #ffae00;
+          }
+          to {
+            text-shadow: 0 0 25px #ffff80, 0 0 45px #ffdf00;
+          }
+        }
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 182, 193, 0.6);
+        backdrop-filter: blur(3px);
+        z-index: 1;
+      }
+
+      /* Trái tim mềm, bông */
       .heart {
         position: relative;
-        width: 250px;
-        height: 250px;
-        background-color: #ff3366;
-        transform: rotate(45deg);
-        animation: beat 1.2s infinite ease-in-out;
-        box-shadow: 0 0 40px rgba(255, 0, 100, 0.6);
+        width: 240px;
+        height: 220px;
+        background: radial-gradient(circle at 30% 30%, #ff5f6d, #ff2d55);
+        transform: rotate(-45deg);
+        border-radius: 50% 50% 0 0;
+        box-shadow: 0 0 60px rgba(255, 0, 80, 0.4);
+        z-index: 2;
       }
-
       .heart::before,
       .heart::after {
         content: "";
         position: absolute;
-        width: 250px;
-        height: 250px;
-        background-color: #ff3366;
+        width: 240px;
+        height: 220px;
+        background: radial-gradient(circle at 30% 30%, #ff5f6d, #ff2d55);
         border-radius: 50%;
       }
-
       .heart::before {
-        top: -125px;
+        top: -120px;
         left: 0;
       }
-
       .heart::after {
-        left: -125px;
+        left: 120px;
         top: 0;
       }
 
-      @keyframes beat {
-        0%,
-        100% {
-          transform: rotate(45deg) scale(1);
-        }
-        50% {
-          transform: rotate(45deg) scale(1.2);
-        }
+      /* Viền sáng */
+      .heart,
+      .heart::before,
+      .heart::after {
+        filter: drop-shadow(0 0 30px rgba(255, 105, 180, 0.6));
       }
 
-      h1 {
-        margin-top: 40px;
-        font-size: 2.5em;
+      /* Chữ bên trong tim */
+      .message {
+        position: absolute;
         color: white;
-        text-shadow: 0 0 15px #fff;
-        animation: glow 2s ease-in-out infinite alternate;
-      }
-
-      @keyframes glow {
-        from {
-          text-shadow: 0 0 15px #fff, 0 0 30px #ff1493;
-        }
-        to {
-          text-shadow: 0 0 25px #fff, 0 0 45px #ff69b4;
-        }
-      }
-
-      p {
-        color: #fff;
-        font-size: 1.2em;
         text-align: center;
-        margin: 10px 0 0;
+        width: 160px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        z-index: 10;
+        font-size: 16px;
+        line-height: 1.4;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
       }
 
-      /* Hiệu ứng trái tim nhỏ bay nền */
-      .small-heart {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background: red;
-        transform: rotate(45deg);
-        animation: float 4s linear infinite;
-      }
-      .small-heart::before,
-      .small-heart::after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background: red;
-        border-radius: 50%;
-      }
-      .small-heart::before {
-        top: -10px;
-        left: 0;
-      }
-      .small-heart::after {
-        left: -10px;
-        top: 0;
+      /* Dòng chúc mừng bên dưới */
+      .footer {
+        margin-top: 40px;
+        font-size: 22px;
+        color: #fff;
+        font-weight: 600;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+        z-index: 3;
       }
 
-      @keyframes float {
+      /* Trái tim bay */
+      .floating-heart {
+        position: absolute;
+        color: #ff2d55;
+        animation: floatUp 6s linear forwards;
+        opacity: 0.8;
+        z-index: 2;
+      }
+
+      @keyframes floatUp {
         0% {
+          transform: translateY(0) scale(1);
           opacity: 1;
-          transform: translateY(0) rotate(45deg);
         }
         100% {
+          transform: translateY(-100vh) scale(0.6);
           opacity: 0;
-          transform: translateY(-800px) rotate(45deg);
         }
+      }
+
+      audio {
+        display: none;
       }
     </style>
   </head>
   <body>
-    <div class="heart"></div>
-    <h1>💖 💖</h1>
-    <tràn>
-      Chúc tất cả các nữ bạn luôn xinh đẹp,
-      <br>
-      tràn đầy yêu thương và có nhiều niềm
-      vui 💐
-    </p>
+    <div class="overlay"></div>
+
+    <div class="heart">
+      <div class="message">
+        💖 Chúc các bạn nữ xinh đẹp,<br />
+        hạnh phúc<br />
+        và rãng rỡ như bông hoa trong nắng 💐
+      </div>
+    </div>
+
+    <div class="footer">
+      🌸
+      <span class="highlith"> Chúc mừng ngày Phụ nữ Việt Nam 20/10</span>🌸
+    </div>
+
+    <!-- Nhạc nền -->
+    <audio autoplay loop>
+      <source
+        src="https://cdn.pixabay.com/download/audio/2022/03/09/audio_3c12fda117.mp3?filename=romantic-piano-112194.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
 
     <script>
-      // Tạo các trái tim nhỏ bay
+      // Hiệu ứng tim bay
+      const body = document.body;
       function createHeart() {
         const heart = document.createElement("div");
-        heart.classList.add("small-heart");
+        heart.classList.add("floating-heart");
+        heart.innerHTML = "💗";
         heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
-        heart.style.background = `hsl(${Math.random() * 360}, 80%, 60%)`;
-        document.body.appendChild(heart);
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+        body.appendChild(heart);
         setTimeout(() => heart.remove(), 6000);
       }
       setInterval(createHeart, 300);
